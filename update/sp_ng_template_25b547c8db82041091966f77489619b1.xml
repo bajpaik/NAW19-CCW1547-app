@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>showRelatedHardware</id>
+        <sp_widget display_value="UFI Assets">4be08ac0db45001091966f774896192a</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>workhstayh</sys_created_by>
+        <sys_created_on>2019-12-26 11:30:18</sys_created_on>
+        <sys_id>25b547c8db82041091966f77489619b1</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>showRelatedHardware</sys_name>
+        <sys_package display_value="Peer Review" source="x_274523_peer_revi">0128d8281b277b0090824196bc4bcbd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Peer Review">0128d8281b277b0090824196bc4bcbd2</sys_scope>
+        <sys_update_name>sp_ng_template_25b547c8db82041091966f77489619b1</sys_update_name>
+        <sys_updated_by>workhstayh</sys_updated_by>
+        <sys_updated_on>2020-01-02 08:16:45</sys_updated_on>
+        <template><![CDATA[
+<div class="panel panel-default">
+<!-- your widget template -->
+<div class="panel-heading">
+ Related CI's 
+</div>
+<div class="panel-body">
+<span ng-if="c.data.loading"><i  class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    <span class="sr-only">Loading...</span></span>
+    <ul class="list-group">
+ 
+ <li class="list-group-item" ng-repeat="list in relatedCIs" ng-if="!c.data.loading"> 
+   
+   {{list.num}} </li>
+      <li class="list-group-item" ng-if="relatedCIs=='' && !c.data.loading" > 
+   
+${No related CI's found!} </li>
+</ul>
+    </div>
+ 
+</div>
+ <div class="panel-footer text-right">
+<button class="btn btn-primary" ng-click="c.closeModal()">${Close}</button>
+   </div>]]></template>
+        <u_sys_id>com.glide.sys.User@cee568</u_sys_id>
+    </sp_ng_template>
+</record_update>

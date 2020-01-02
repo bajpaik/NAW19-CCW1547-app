@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function(spUtil,$scope,$window) {
+  /* widget controller */
+  var c = this;
+	
+/* $scope.currentUser= 
+	 $window.localStorage.getItem('sys_id')*/
+ 
+ $scope.asset = $scope.data.showAsset
+spUtil.get("ufi-user-asset").then(function(response){
+		c.userAsset = response;
+	}); 
+	
+	
+	$scope.showAsset = function(){
+		return false
+	}
+	
+$scope.a = 
+	$scope.data.isLoggedInUsersProfile;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) { 
+
+ }]]></link>
+        <name>ng-if</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	
+data.showAsset = showAssets()
+function showAssets(){
+	return true
+	//change this to true or false to display widget 
+}
+	
+	// 2nd method
+data.assetServer =	$sp.getWidget('ufi-user-asset')
+
+
+
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>workhstayh</sys_created_by>
+        <sys_created_on>2019-11-15 04:41:56</sys_created_on>
+        <sys_id>8a18da36db4d001091966f77489619fe</sys_id>
+        <sys_mod_count>90</sys_mod_count>
+        <sys_name>ng-if</sys_name>
+        <sys_package display_value="Peer Review" source="x_274523_peer_revi">0128d8281b277b0090824196bc4bcbd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Peer Review">0128d8281b277b0090824196bc4bcbd2</sys_scope>
+        <sys_update_name>sp_widget_8a18da36db4d001091966f77489619fe</sys_update_name>
+        <sys_updated_by>workhstayh</sys_updated_by>
+        <sys_updated_on>2019-11-16 07:13:03</sys_updated_on>
+        <template><![CDATA[ <!-- UFI Asset Widget -->
+<!--First Method-->
+<div ng-show="asset==true">
+  
+  
+     <sp-widget widget = "c.userAsset"></sp-widget>
+  </div>
+
+
+Second Widget
+<!--Second Method-->
+<sp-widget widget="data.assetServer" ng-if="a==true"></sp-widget>
+
+ <!--<div class="modal-body">
+          	<iframe id="mfa-config-window" src="/google_auth_setup_dialog" width="100%" height="500px" frameBorder="0"></iframe>
+          </div>-->}}
+
+]]></template>
+        <u_record_sysid/>
+        <u_sys_id/>
+    </sp_widget>
+</record_update>

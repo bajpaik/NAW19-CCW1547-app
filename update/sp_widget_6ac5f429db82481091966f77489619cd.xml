@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope,$uibModal) {
+  /* widget controller */
+  var c = this;
+	c.items = ['item1', 'item2', 'item3'];
+    $scope.editUser = function () {
+			
+        var modalInstance = $uibModal.open({
+          templateUrl: 'myModalContent',
+         scope : $scope
+				
+        // data passed to the controller
+        });
+			
+    };
+
+    
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs display_value="UI-BootStrap-Modal-Dialog-Tutorial">c6f5f829db82481091966f77489619a4</docs>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) { 
+
+ }]]></link>
+        <name>UI-BootStrap Modal Dialog</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>workhstayh</sys_created_by>
+        <sys_created_on>2019-12-30 16:55:22</sys_created_on>
+        <sys_id>6ac5f429db82481091966f77489619cd</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>UI-BootStrap Modal Dialog</sys_name>
+        <sys_package display_value="Peer Review" source="x_274523_peer_revi">0128d8281b277b0090824196bc4bcbd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Peer Review">0128d8281b277b0090824196bc4bcbd2</sys_scope>
+        <sys_update_name>sp_widget_6ac5f429db82481091966f77489619cd</sys_update_name>
+        <sys_updated_by>workhstayh</sys_updated_by>
+        <sys_updated_on>2019-12-31 06:53:47</sys_updated_on>
+        <template><![CDATA[ 
+ <button class="btn-btn primary" ng-click=editUser()>
+   button
+</button>]]></template>
+        <u_record_sysid/>
+        <u_sys_id>com.glide.sys.User@eba628</u_sys_id>
+    </sp_widget>
+</record_update>

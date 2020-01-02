@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {
+  /* widget controller */
+  var c = this;
+	$scope.selectCatItem = function() {
+
+console.log("onSelect",c.data.selectedCatItem);
+
+c.server.update();
+
+}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) { 
+
+ }]]></link>
+        <name>Input on server script</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+var catItemGR = new GlideRecord('sc_cat_item');
+
+catItemGR.addActiveQuery();
+
+catItemGR.addNotNullQuery('short_description');
+
+catItemGR.setLimit(5);
+
+catItemGR.query();
+
+data.catItemList = [];
+
+while(catItemGR.next()) {
+
+var n = {};
+
+$sp.getRecordValues(n, catItemGR, 'sys_id,name');
+
+data.catItemList.push($sp.getCatalogItem(catItemGR.sys_id));
+
+}
+
+gs.log(input,'ss_init');
+
+console.log(input.selectedCatItem);
+
+if(input.selectedCatItem!=undefined){
+
+console.log("FOUND");
+
+data.curCatItem = $sp.getCatalogItem(input.selectedCatItem);
+
+}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>workhstayh</sys_created_by>
+        <sys_created_on>2019-12-26 06:25:57</sys_created_on>
+        <sys_id>225f3184db8ec01091966f7748961919</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Input on server script</sys_name>
+        <sys_package display_value="Peer Review" source="x_274523_peer_revi">0128d8281b277b0090824196bc4bcbd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Peer Review">0128d8281b277b0090824196bc4bcbd2</sys_scope>
+        <sys_update_name>sp_widget_225f3184db8ec01091966f7748961919</sys_update_name>
+        <sys_updated_by>workhstayh</sys_updated_by>
+        <sys_updated_on>2019-12-26 06:25:57</sys_updated_on>
+        <template><![CDATA[<div class="row">
+
+       <div class="col-sm-12">
+
+               <select ng-change="selectCatItem()"
+
+                               ng-model="c.data.selectedCatItem"
+
+                               ng-options="catItem.sys_id as catItem.short_description for catItem in c.data.catItemList">
+
+               </select>
+
+       </div>
+
+</div>
+
+<div class="row">
+
+   <div class="col-sm-12">
+
+       
+
+   </div>
+
+</div>]]></template>
+        <u_record_sysid/>
+        <u_sys_id>com.glide.sys.User@14222a1</u_sys_id>
+    </sp_widget>
+</record_update>

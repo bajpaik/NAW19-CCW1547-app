@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {
+  /* widget controller */
+  var c = this;
+	$scope.paste = function(event){
+  var files = [];
+  var clipData = event.originalEvent.clipboardData;
+  angular.forEach(clipData.items, function(item, key){
+    if(clipData.items[key].type.match(/image.*/)){
+      files.push(clipData.items[key].getAsFile());
+      $scope.attachmentHandler.onFileSelect(files);
+    }
+  });
+}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) { 
+
+ }]]></link>
+        <name>UFI Pasting Images</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>workhstayh</sys_created_by>
+        <sys_created_on>2019-10-06 14:09:10</sys_created_on>
+        <sys_id>d681e642db58401091966f7748961904</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>UFI Pasting Images</sys_name>
+        <sys_package display_value="Peer Review" source="x_274523_peer_revi">0128d8281b277b0090824196bc4bcbd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Peer Review">0128d8281b277b0090824196bc4bcbd2</sys_scope>
+        <sys_update_name>sp_widget_d681e642db58401091966f7748961904</sys_update_name>
+        <sys_updated_by>workhstayh</sys_updated_by>
+        <sys_updated_on>2019-10-06 14:09:10</sys_updated_on>
+        <template><![CDATA[<div ng-paste="paste($event)">
+<!-- your widget template -->
+</div>]]></template>
+        <u_record_sysid/>
+        <u_sys_id/>
+    </sp_widget>
+</record_update>

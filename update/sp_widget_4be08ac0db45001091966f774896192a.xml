@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $uibModal, spModal) {
+  /* widget controller */
+  var c = this;
+
+
+		c.showRelatedAssets = function(sysID){
+c.data.loading=true;
+c.data.sysid = sysID
+			
+			c.server.update().then(function(){
+				c.data.sysid = ''
+			}).then(function(){
+				 c.data.loading=false;
+$scope.relatedCIs = $scope.data.getRelatedCI
+			})
+
+
+c.modalInstance = $uibModal.open({
+		templateUrl : 'showRelatedHardware',
+		scope : $scope
+	
+	})
+	
+
+	}
+	c.closeModal = function(){
+			
+    c.modalInstance.close();
+  };
+	
+/*var modalInstance = $uibModal.open({
+			templateUrl : 'showRelatedHardwareAssets',
+			ariaLabelledBy: 'modal-title',
+			ariaDescribedBy: 'modal-body',
+			size: 'lg',
+			controller: function($scope, $sce) {
+				$scope.content=$scope.data.content;
+				$scope.cancel = function() { modalInstance.dismiss('cancel'); };
+				$scope.convertHtml = $sce.trustAsHtml($scope.data.content);
+			}
+		})*/
+	}
+	
+
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>glyph</field_list>
+        <has_preview>true</has_preview>
+        <id>ufi-user-asset</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) { 
+
+ }]]></link>
+        <name>UFI Assets</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+/*data.sysUserID = $sp.getParameter("sys_id");
+if (!data.sysUserID)
+         data.sysUserID = gs.getUser().getID();
+var sysUserGR = new GlideRecord("sys_user");
+data.userExists = sysUserGR.get(data.sysUserID) && sysUserGR.canRead();*/
+	
+	 data.assets = [];
+	var ast = new GlideRecord('alm_hardware');
+	ast.addQuery('assigned_to',$sp.getParameter('sys_id'));
+  //ast.addQuery('install_status',1);
+	ast.query();
+	while(ast.next()){
+		var almObj=  {}
+			almObj.assetName = ast.getDisplayValue('display_name')
+			almObj.type = ast.getDisplayValue('u_type');
+		  almObj.sysid = ast.getValue('sys_id')
+
+		data.assets.push(almObj)
+		
+}
+	//filter out assets which is not needed
+	data.filteredAssets = data.assets.filter(function(item){
+	return !(gs.getProperty('x_274523_peer_revi.ufi.showAssetType').includes(item.type));
+});
+
+	//show related hardware assets
+	if(input && input.sysid )	{
+	data.getRelatedCI = getmyCIRel(input.sysid)
+	}
+
+function getmyCIRel(ci) {
+ data.relatedCI = []
+  var gr = new GlideRecord('alm_asset');
+  gr.addQuery('parent',ci);
+
+  gr.query();
+
+  while (gr.next()) {
+		var rel = {
+			num : gr.getDisplayValue('display_name')
+		}
+		data.relatedCI.push(rel)
+ 
+  }
+  return data.relatedCI;
+  }
+	
+		
+	
+			
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>workhstayh</sys_created_by>
+        <sys_created_on>2019-11-06 13:24:57</sys_created_on>
+        <sys_id>4be08ac0db45001091966f774896192a</sys_id>
+        <sys_mod_count>187</sys_mod_count>
+        <sys_name>UFI Assets</sys_name>
+        <sys_package display_value="Peer Review" source="x_274523_peer_revi">0128d8281b277b0090824196bc4bcbd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Peer Review">0128d8281b277b0090824196bc4bcbd2</sys_scope>
+        <sys_update_name>sp_widget_4be08ac0db45001091966f774896192a</sys_update_name>
+        <sys_updated_by>workhstayh</sys_updated_by>
+        <sys_updated_on>2020-01-02 08:20:41</sys_updated_on>
+        <template><![CDATA[
+<div class="row">
+      <div class="col-sm-12 col-xs-12">
+        <div class="panel panel-primary b">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <i class="fa fa-info-circle m-r-sm"></i>${UFI Assets}
+            </h4>
+          </div>
+          <div class="body padder-xs">
+            <div class="list-group">
+             
+               <table class="table">
+  <thead><tr>
+    <th>Asset Name</th>
+    <th>Class</th></tr>
+                 </thead> 
+  <tbody>
+  <tr ng-repeat="asset in data.assets">
+   <td >  <span> <i ng-click="c.showRelatedAssets(asset.sysid)" title="Click link icon to see related assets" class="glyphicon glyphicon-link"></i></span>  {{asset.assetName}}</td>
+    <td> {{asset.type}}</td> 
+    </tr></tbody>
+  </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    ]]></template>
+        <u_record_sysid/>
+        <u_sys_id/>
+    </sp_widget>
+</record_update>

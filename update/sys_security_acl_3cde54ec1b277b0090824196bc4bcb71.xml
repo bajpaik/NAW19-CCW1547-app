@@ -21,5 +21,6 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2019-08-25 05:58:42</sys_updated_on>
         <type display_value="record">record</type>
+        <u_sys_id/>
     </sys_security_acl>
 </record_update>

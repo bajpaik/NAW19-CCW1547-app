@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Relatório de Status" max_length="40" name="project_status" type="collection">
+        <element label="Demand" max_length="32" name="x_274523_peer_revi_demand" reference="dmn_demand" type="reference"/>
+        <index name="index">
+            <element name="x_274523_peer_revi_demand"/>
+        </index>
+    </element>
+</database>

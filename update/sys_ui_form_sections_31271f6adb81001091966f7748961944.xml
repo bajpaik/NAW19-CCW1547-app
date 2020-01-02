@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="31271f6adb81001091966f7748961944" sys_domain="global" table="x_80404_bugs_bunny_guest" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>workhstayh</sys_created_by>
+            <sys_created_on>2019-11-14 14:06:04</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>39271baadb81001091966f7748961994</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_80404_bugs_bunny_guest" name="x_80404_bugs_bunny_guest" sys_domain="global" view="3e5370019f22120047a2d126c42e705b">31271f6adb81001091966f7748961944</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_80404_bugs_bunny_guest" sys_domain="global" view="3e5370019f22120047a2d126c42e705b">b5271baadb81001091966f774896198c</sys_ui_section>
+            <sys_updated_by>workhstayh</sys_updated_by>
+            <sys_updated_on>2019-11-14 14:06:04</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>workhstayh</sys_created_by>
+            <sys_created_on>2019-11-14 14:06:04</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>39271baadb81001091966f774896198b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_80404_bugs_bunny_guest" name="x_80404_bugs_bunny_guest" sys_domain="global" view="3e5370019f22120047a2d126c42e705b">31271f6adb81001091966f7748961944</sys_ui_form>
+            <sys_ui_section caption="Job Role" display_value="Job Role" name="x_80404_bugs_bunny_guest" sys_domain="global" view="3e5370019f22120047a2d126c42e705b">f9271baadb81001091966f7748961984</sys_ui_section>
+            <sys_updated_by>workhstayh</sys_updated_by>
+            <sys_updated_on>2019-11-14 14:06:04</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>workhstayh</sys_created_by>
+            <sys_created_on>2019-11-14 14:06:04</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b9271baadb81001091966f77489619aa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_80404_bugs_bunny_guest" name="x_80404_bugs_bunny_guest" sys_domain="global" view="3e5370019f22120047a2d126c42e705b">31271f6adb81001091966f7748961944</sys_ui_form>
+            <sys_ui_section caption="Contact Details" display_value="Contact Details" name="x_80404_bugs_bunny_guest" sys_domain="global" view="3e5370019f22120047a2d126c42e705b">31271baadb81001091966f7748961995</sys_ui_section>
+            <sys_updated_by>workhstayh</sys_updated_by>
+            <sys_updated_on>2019-11-14 14:06:04</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_80404_bugs_bunny_guest</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>workhstayh</sys_created_by>
+            <sys_created_on>2019-11-14 14:06:04</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>31271f6adb81001091966f7748961944</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_80404_bugs_bunny_guest</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Peer Review" source="x_274523_peer_revi">0128d8281b277b0090824196bc4bcbd2</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Peer Review">0128d8281b277b0090824196bc4bcbd2</sys_scope>
+            <sys_update_name>sys_ui_form_sections_31271f6adb81001091966f7748961944</sys_update_name>
+            <sys_updated_by>workhstayh</sys_updated_by>
+            <sys_updated_on>2019-11-14 14:06:04</sys_updated_on>
+            <sys_user/>
+            <u_sys_id/>
+            <view display_value="Human Resources" name="human_resources">3e5370019f22120047a2d126c42e705b</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {
+  /* widget controller */
+  var c = this;
+	c.hht = function(as){
+		window.open('https://dev85011.service-now.com/hrportal?id=hri_user_profile&sys_id='+as);
+	}
+	 
+    c.myFunction = function () {
+        // populate the c.data object
+        c.data.cases= ['CASENUM01','CASENUM02','CASENUMO3'];
+
+        // send the c.data object to the server
+        c.server.update().then(function () {
+            // do cleanup if needed
+            c.data.cases = [];
+        });
+    }
+		
+		c.myFunctionTwo = function(value){
+			
+			c.server.update().then(function(){
+				c.data.values = {
+				parm1 : value
+			}
+			})
+		}
+	
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) { 
+
+ }]]></link>
+        <name>test input </name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+  // input here contains c.data from client script
+    if (input && input.cases) {
+			gs.addErrorMessage(input.cases.toString())
+     
+    }
+	if(input && input.values){
+		gs.addInfoMessage(input.values.parm1)
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>workhstayh</sys_created_by>
+        <sys_created_on>2019-12-26 02:23:25</sys_created_on>
+        <sys_id>f0970100dbcac01091966f77489619a1</sys_id>
+        <sys_mod_count>51</sys_mod_count>
+        <sys_name>test input </sys_name>
+        <sys_package display_value="Peer Review" source="x_274523_peer_revi">0128d8281b277b0090824196bc4bcbd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Peer Review">0128d8281b277b0090824196bc4bcbd2</sys_scope>
+        <sys_update_name>sp_widget_f0970100dbcac01091966f77489619a1</sys_update_name>
+        <sys_updated_by>workhstayh</sys_updated_by>
+        <sys_updated_on>2019-12-26 07:31:28</sys_updated_on>
+        <template><![CDATA[<div>
+<span> <i ng-click="c.hht('000f0af9dbc29300329ffe1ebf9619a6')" class="fa fa-info-circle m-r-sm"></i></span>
+</div>
+<br>
+<div>
+  <input type='checkbox' ng-click="c.myFunction()"> Checkbox
+</div>
+<br>
+<div>
+  <input type='button' ng-click="c.myFunctionTwo('seafood')" value="Button" style ="color:red"> 
+</div>]]></template>
+        <u_record_sysid/>
+        <u_sys_id>com.glide.sys.User@14222a1</u_sys_id>
+    </sp_widget>
+</record_update>
